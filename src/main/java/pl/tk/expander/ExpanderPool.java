@@ -1,4 +1,4 @@
-package pl.tk.service;
+package pl.tk.expander;
 
 import java.util.Map;
 

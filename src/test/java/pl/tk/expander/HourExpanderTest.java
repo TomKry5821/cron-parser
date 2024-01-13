@@ -1,16 +1,17 @@
-package pl.tk.service;
+package pl.tk.expander;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-class DayOfTheMonthExpanderTest {
-  DayOfTheMonthExpander expander = new DayOfTheMonthExpander();
+class HourExpanderTest {
+
+  HourExpander expander = new HourExpander();
 
   @Test
-  void shouldExpandAllDays() {
-    var expectedSize = 31;
+  void shouldExpandAllHours() {
+    var expectedSize = 24;
     var cron = "*";
 
     var result = expander.expand(cron);
@@ -19,7 +20,7 @@ class DayOfTheMonthExpanderTest {
   }
 
   @Test
-  void shouldExpandRangeDays() {
+  void shouldExpandRangeHours() {
     var expectedContent = List.of(1, 2, 3, 4, 5, 6);
     var expectedSize = 6;
     var cron = "1-6";
@@ -31,7 +32,7 @@ class DayOfTheMonthExpanderTest {
   }
 
   @Test
-  void shouldExpandCommaDays() {
+  void shouldExpandCommaHours() {
     var expectedContent = List.of(1, 2, 3, 4, 5, 6);
     var expectedSize = 6;
     var cron = "1,2,3,4,5,6";
@@ -43,9 +44,9 @@ class DayOfTheMonthExpanderTest {
   }
 
   @Test
-  void shouldExpandSlashDaysWithAllValues() {
-    var expectedContent = List.of(1, 7, 13, 19, 25, 31);
-    var expectedSize = 6;
+  void shouldExpandSlashHoursWithAllValues() {
+    var expectedContent = List.of(0, 6, 12, 18);
+    var expectedSize = 4;
     var cron = "*/6";
 
     var result = expander.expand(cron);
@@ -55,7 +56,7 @@ class DayOfTheMonthExpanderTest {
   }
 
   @Test
-  void shouldExpandSlashDays() {
+  void shouldExpandSlashHours() {
     var expectedContent = List.of(0, 5, 10, 15, 20);
     var expectedSize = 5;
     var cron = "0-20/5";

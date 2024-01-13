@@ -1,4 +1,4 @@
-package pl.tk.service;
+package pl.tk.expander;
 
 import static pl.tk.utils.CronExpanderUtils.COMMA_PATTERN;
 import static pl.tk.utils.CronExpanderUtils.DASH_PATTERN;
@@ -28,7 +28,8 @@ public interface CronExpander {
     var slashMatcher = SLASH_PATTERN.matcher(cron);
     if (slashMatcher.find()) {
       var startValue = slashMatcher.group(1);
-      var currentValues = (startValue.equals("*"))
+      var currentValues =
+          (startValue.equals("*") || startValue.contains("-"))
               ? expand(startValue)
               : range(Integer.parseInt(startValue), getMaxValue());
       var interval = Integer.parseInt(slashMatcher.group(2));

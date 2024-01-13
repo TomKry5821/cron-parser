@@ -1,8 +1,8 @@
-package pl.tk.service;
+package pl.tk.expander;
 
 import java.util.List;
 
-public class DayOfTheMonthExpander implements CronExpander {
+class DayOfTheMonthExpander implements CronExpander {
 
   private static final List<Integer> POSSIBLE_VALUES =
       List.of(

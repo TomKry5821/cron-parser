@@ -1,15 +1,16 @@
-package pl.tk.service;
+package pl.tk.expander;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
 import java.util.List;
 
-class DayOfTheWeekExpanderTest {
-  DayOfTheWeekExpander expander = new DayOfTheWeekExpander();
+class MonthExpanderTest {
+  MonthExpander expander = new MonthExpander();
 
   @Test
   void shouldExpandAllMonths() {
-    var expectedSize = 7;
+    var expectedSize = 12;
     var cron = "*";
 
     var result = expander.expand(cron);
@@ -43,9 +44,9 @@ class DayOfTheWeekExpanderTest {
 
   @Test
   void shouldExpandSlashMonthsWithAllValues() {
-    var expectedContent = List.of(0, 2, 4, 6);
-    var expectedSize = 4;
-    var cron = "*/2";
+    var expectedContent = List.of(0, 4, 8);
+    var expectedSize = 3;
+    var cron = "*/4";
 
     var result = expander.expand(cron);
 
@@ -55,9 +56,9 @@ class DayOfTheWeekExpanderTest {
 
   @Test
   void shouldExpandSlashMonths() {
-    var expectedContent = List.of(0, 2, 4);
+    var expectedContent = List.of(0, 5, 10);
     var expectedSize = 3;
-    var cron = "0-5/2";
+    var cron = "0-12/5";
 
     var result = expander.expand(cron);
 

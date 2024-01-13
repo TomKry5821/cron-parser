@@ -1,8 +1,8 @@
-package pl.tk.service;
+package pl.tk.expander;
 
 import java.util.List;
 
-public class MinuteExpander implements CronExpander {
+class MinuteExpander implements CronExpander {
 
   private static final List<Integer> POSSIBLE_VALUES =
       List.of(

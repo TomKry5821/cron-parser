@@ -1,17 +1,15 @@
-package pl.tk.service;
+package pl.tk.expander;
 
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-
 import java.util.List;
 
-class HourExpanderTest {
-
-  HourExpander expander = new HourExpander();
+class MinuteExpanderTest {
+  MinuteExpander expander = new MinuteExpander();
 
   @Test
-  void shouldExpandAllHours() {
-    var expectedSize = 24;
+  void shouldExpandAllMinutes() {
+    var expectedSize = 60;
     var cron = "*";
 
     var result = expander.expand(cron);
@@ -20,7 +18,7 @@ class HourExpanderTest {
   }
 
   @Test
-  void shouldExpandRangeHours() {
+  void shouldExpandRangeMinutes() {
     var expectedContent = List.of(1, 2, 3, 4, 5, 6);
     var expectedSize = 6;
     var cron = "1-6";
@@ -32,7 +30,7 @@ class HourExpanderTest {
   }
 
   @Test
-  void shouldExpandCommaHours() {
+  void shouldExpandCommaMinutes() {
     var expectedContent = List.of(1, 2, 3, 4, 5, 6);
     var expectedSize = 6;
     var cron = "1,2,3,4,5,6";
@@ -44,10 +42,10 @@ class HourExpanderTest {
   }
 
   @Test
-  void shouldExpandSlashHoursWithAllValues() {
-    var expectedContent = List.of(0, 6, 12, 18);
+  void shouldExpandSlashMinutesWithAllValues() {
+    var expectedContent = List.of(0, 15, 30, 45);
     var expectedSize = 4;
-    var cron = "*/6";
+    var cron = "*/15";
 
     var result = expander.expand(cron);
 
@@ -56,7 +54,7 @@ class HourExpanderTest {
   }
 
   @Test
-  void shouldExpandSlashHours() {
+  void shouldExpandSlashMinutes() {
     var expectedContent = List.of(0, 5, 10, 15, 20);
     var expectedSize = 5;
     var cron = "0-20/5";
