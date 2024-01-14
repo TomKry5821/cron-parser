@@ -1,9 +1,14 @@
 plugins {
     id("java")
+    id("application")
 }
 
 group = "pl.tk"
 version = "1.0.0-SNAPSHOT"
+
+application {
+    mainClass = "pl.tk.Main"
+}
 
 repositories {
     mavenCentral()
